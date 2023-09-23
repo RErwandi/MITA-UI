@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,7 @@ namespace Mita
     {
         [SerializeField] private Button button;
         [SerializeField] private Image icon;
+        [SerializeField] private TextMeshProUGUI text;
         [SerializeField] private Color activeColor = Color.white;
         [SerializeField] private Color inactiveColor = Color.white;
 
@@ -32,12 +34,20 @@ namespace Mita
         
         public void Active()
         {
-            icon.color = activeColor;
+            if(icon != null)
+                icon.color = activeColor;
+
+            if (text != null)
+                text.color = activeColor;
         }
 
         public void Inactive()
         {
-            icon.color = inactiveColor;
+            if(icon != null)
+                icon.color = inactiveColor;
+
+            if (text != null)
+                text.color = inactiveColor;
         }
 
         private void OnClick()
